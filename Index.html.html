@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Math Pour Tous</title>
+</head>
+<body>
+      <h1>Conversion d'une base décimal à une base binaire</h1>
+      <form>
+        <p>Veuillez entrer le nombre à convertir(par simplicité votre nombre sera toujours arrondit à l'unité inférieur si il contient des virgules)</p>
+        <div><input type="text"  id="input" placeholder="0"><button onclick="conversion();">Convertir</button></div>
+        <p>Votre nombre en base binaire est :</p>
+        <p id="nFinal"></p>
+        
+      </form>
+
+      <footer>
+        <p>Réalisé par  <span> Muaye </span> </p>
+      </footer>
+      
+       
+     <script type="text/javascript">
+
+        
+
+      function conversion(){
+
+     
+      //recuperation des variables
+        var b,c,i,d;
+        var Tab=[];
+        var Final=[];
+        var input=document.getElementById("input");
+        var a=input.value;
+        var button=document.getElementsByTagName("button")[0];
+        var binaire=document.getElementById("nFinal");
+        
+
+        //conversio en binaire
+        if(a==0)
+        {
+            Final.push(a);
+            nbTxt=Final.join("");
+        }
+
+        else if(a<0)
+        {
+            alert("Veuillez entrer un nombre supérieure à 0")
+
+        }
+        else if(a>0)
+        {
+       
+        for(i=0;a>0;i++)
+        {
+            b=a%2;
+            a=a/2;
+            a=Math.floor(a);
+            Tab.push(b);
+        }
+        //on récupère les valeurs
+        for(c=0;c<Tab.length;c++)
+        {
+            i=i-1;
+            d=Tab[i];
+            Final.push(d);
+        
+        }
+        nbTxt=Final.join("");
+       }
+       else
+       {
+        alert("Veuillez entrer un nombre")
+       }
+        
+       alert(nbTxt);
+       
+    }
+   
+    
+
+
+
+       </script>
+</body>
+</html>
